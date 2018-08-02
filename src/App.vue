@@ -36,11 +36,7 @@ html,body,#app{
   flex-direction: column;
   height: 100%;
 }
-.topbar {
-  background: red;
-}
 main{
-  background: green;
   display: flex;
   flex: 1;
   .editor{
