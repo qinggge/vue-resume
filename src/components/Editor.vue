@@ -15,31 +15,31 @@
         </nav>
         <ol class="panes">
             <li v-bind:class="{active: currentTab === 0}">
-                <ProfileEditor v-bind:profile="profile"/> 
+                <ProfileEditor v-bind:profile="resume.profile"/> 
             </li>
             <li v-bind:class="{active: currentTab === 1}">
-                <ArrayEditor v-bind:items="workExprience" v-bind:labels="{company:'公司',duration:'工作年限',content:'工作内容'}" v-bind:title="'工作经历'"/>
+                <ArrayEditor v-bind:items="resume.workExp" v-bind:labels="{company:'公司',duration:'工作年限',content:'工作内容'}" v-bind:title="'工作经历'"/>
             </li>
             <li v-bind:class="{active: currentTab === 2}">
-                <ArrayEditor v-bind:items="project" v-bind:labels="{name:'项目名称',content:'工作内容'}" v-bind:title="'项目经验'"/>
+                <ArrayEditor v-bind:items="resume.project" v-bind:labels="{name:'项目名称',content:'工作内容'}" v-bind:title="'项目经验'"/>
             </li>
             <li v-bind:class="{active: currentTab === 3}">
-                <ArrayEditor v-bind:items="education" v-bind:labels="{school:'学校',duration:'时间',degree:'学位'}" v-bind:title="'教育背景'"/>
+                <ArrayEditor v-bind:items="resume.education" v-bind:labels="{school:'学校',duration:'时间',degree:'学位'}" v-bind:title="'教育背景'"/>
             </li>
             <li v-bind:class="{active: currentTab === 4}">
                 <h2>联系方式</h2>
                 <el-form>
                     <el-form-item label="QQ">
-                        <el-input v-model="contact.QQ"></el-input>
+                        <el-input v-model="resume.contact.QQ"></el-input>
                     </el-form-item>
                     <el-form-item label="微信">
-                        <el-input v-model="contact.wechat"></el-input>
+                        <el-input v-model="resume.contact.wechat"></el-input>
                     </el-form-item>
                     <el-form-item label="手机">
-                        <el-input v-model="contact.tel"></el-input>
+                        <el-input v-model="resume.contact.tel"></el-input>
                     </el-form-item>
                     <el-form-item label="邮箱">
-                        <el-input v-model="contact.email"></el-input>
+                        <el-input v-model="resume.contact.email"></el-input>
                     </el-form-item>
                 </el-form>
             </li>
@@ -52,27 +52,11 @@ import ProfileEditor from './ProfileEditor'
 import ArrayEditor from './ArrayEditor'
 export default {
     components: { ProfileEditor,ArrayEditor},
+    props: ['resume'],
     data(){
         return {
             currentTab: 0,
-            icons: ['IDcard','centericjob','project','book','tel'],
-            profile: {
-                name: '',
-                city: '',
-                birth: ''
-            },
-            workExprience: [
-                {company:'',duration:'',content:''}
-            ],
-            education: [
-                {school: '',duration:'',degree:''}
-            ],
-            project: [
-                {name: '',content: ''}
-            ],
-            contact: [
-                {QQ:'',wechat: '',tel: '',email: ''}
-            ]
+            icons: ['IDcard','centericjob','project','book','tel']
         }
     },
     methods: {

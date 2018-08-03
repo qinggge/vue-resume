@@ -1,10 +1,11 @@
 <template>
-  <div id="app">
-    <Topbar class="topbar"/>
+  <div id="app" v-bind:class="{previewMode: previewMode}">
+    <Topbar class="topbar" v-on:preview="preview"/>
     <main>
-      <Editor class="editor"/>
-      <Preview class="preview"/>
+      <Editor class="editor" v-bind:resume="resume"/>
+      <Preview class="preview" v-bind:resume="resume"/>
     </main>
+    <el-button id="cancelPreview" v-on:click="cancelPreview()">退出预览</el-button>
   </div>
 </template>
 
@@ -14,6 +15,26 @@ import Editor from "./components/Editor";
 import Preview from "./components/Preview";
 
 export default {
+  data() {
+    return{
+      previewMode: false,
+      resume: {
+        profile: [{ name: '',city: '',birth: ''}],
+        workExp: [{company:'',duration:'',content:''}],
+        education: [{school: '',duration:'',degree:''}],
+        project: [{name: '',content: ''}],
+        contact: [{QQ:'',wechat: '',tel: '',email: ''}]
+      }
+    }
+  },
+  methods:{
+    cancelPreview(){
+      this.previewMode = false
+    },
+    preview(){
+      this.previewMode = true
+    }
+  },
   components: {
     Topbar,
     Preview,
@@ -70,5 +91,24 @@ main {
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+}
+.previewMode > #topbar{
+  display: none;
+}
+.previewMode #editor{
+  display: none;
+}
+.previewMode #preview{
+  max-width: 800px;
+  margin: 32px auto;
+}
+#cancelPreview{
+  display: none;
+}
+.previewMode #cancelPreview{
+  position: absolute;
+  display: block;
+  top: 30px;
+  right: 30px;
 }
 </style>
