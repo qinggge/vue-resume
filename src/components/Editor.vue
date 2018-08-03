@@ -18,16 +18,30 @@
                 <ProfileEditor v-bind:profile="profile"/> 
             </li>
             <li v-bind:class="{active: currentTab === 1}">
-                <WorkExp v-bind:workExprience="workExprience    "/>
+                <ArrayEditor v-bind:items="workExprience" v-bind:labels="{company:'公司',duration:'工作年限',content:'工作内容'}" v-bind:title="'工作经历'"/>
             </li>
             <li v-bind:class="{active: currentTab === 2}">
-                <h2>项目经历</h2>
+                <ArrayEditor v-bind:items="project" v-bind:labels="{name:'项目名称',content:'工作内容'}" v-bind:title="'项目经验'"/>
             </li>
             <li v-bind:class="{active: currentTab === 3}">
-                <h2>教育背景</h2>
+                <ArrayEditor v-bind:items="education" v-bind:labels="{school:'学校',duration:'时间',degree:'学位'}" v-bind:title="'教育背景'"/>
             </li>
             <li v-bind:class="{active: currentTab === 4}">
                 <h2>联系方式</h2>
+                <el-form>
+                    <el-form-item label="QQ">
+                        <el-input v-model="contact.QQ"></el-input>
+                    </el-form-item>
+                    <el-form-item label="微信">
+                        <el-input v-model="contact.wechat"></el-input>
+                    </el-form-item>
+                    <el-form-item label="手机">
+                        <el-input v-model="contact.tel"></el-input>
+                    </el-form-item>
+                    <el-form-item label="邮箱">
+                        <el-input v-model="contact.email"></el-input>
+                    </el-form-item>
+                </el-form>
             </li>
         </ol>
     </div>
@@ -35,9 +49,9 @@
 
 <script>
 import ProfileEditor from './ProfileEditor'
-import WorkExp from './WorkExp'
+import ArrayEditor from './ArrayEditor'
 export default {
-    components: { ProfileEditor,WorkExp },
+    components: { ProfileEditor,ArrayEditor},
     data(){
         return {
             currentTab: 0,
@@ -48,7 +62,16 @@ export default {
                 birth: ''
             },
             workExprience: [
-                {company:'',content:''}
+                {company:'',duration:'',content:''}
+            ],
+            education: [
+                {school: '',duration:'',degree:''}
+            ],
+            project: [
+                {name: '',content: ''}
+            ],
+            contact: [
+                {QQ:'',wechat: '',tel: '',email: ''}
             ]
         }
     },
