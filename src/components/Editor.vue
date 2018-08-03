@@ -15,33 +15,10 @@
         </nav>
         <ol class="panes">
             <li v-bind:class="{active: currentTab === 0}">
-                <h2>个人信息</h2>
-                <el-form>
-                    <el-form-item label="姓名">
-                        <el-input v-model="profile.name"></el-input>
-                    </el-form-item>
-                    <el-form-item label="城市">
-                        <el-input v-model="profile.city"></el-input>
-                    </el-form-item>
-                    <el-form-item label="出生年月">
-                        <el-input v-model="profile.birth"></el-input>
-                    </el-form-item>
-                </el-form>
+                <ProfileEditor v-bind:profile="profile"/> 
             </li>
             <li v-bind:class="{active: currentTab === 1}">
-                <h2>工作经历</h2>
-                <el-form>
-                    <el-button type="primary" v-on:click="addWorkExprience()" class="addExp">添加</el-button>
-                    <div class="wrapper" v-for="(work,index) in workExprience" :key="index">
-                        <el-form-item label="公司">
-                            <el-input v-model="work.company"></el-input>
-                        </el-form-item>
-                        <el-form-item label="工作内容">
-                            <el-input v-model="work.content"></el-input>
-                        </el-form-item>
-                        <i class="el-icon-error" v-on:click="removeWorkExprience(index)"></i>
-                    </div>
-                </el-form>
+                <WorkExp v-bind:workExprience="workExprience    "/>
             </li>
             <li v-bind:class="{active: currentTab === 2}">
                 <h2>项目经历</h2>
@@ -57,7 +34,10 @@
 </template>
 
 <script>
+import ProfileEditor from './ProfileEditor'
+import WorkExp from './WorkExp'
 export default {
+    components: { ProfileEditor,WorkExp },
     data(){
         return {
             currentTab: 0,
@@ -73,15 +53,6 @@ export default {
         }
     },
     methods: {
-        addWorkExprience(){
-            this.workExprience.push({
-                company: '',content: ''
-            })
-            console.log(this.workExprience)
-        },
-        removeWorkExprience(index){
-            this.workExprience.splice(index,1)
-        }
     },
     created(){
         
@@ -122,15 +93,6 @@ export default {
                 display: block;
                 height: 100%;
                 overflow: auto;
-                > .el-form{
-                    position: relative;
-                    > .addExp{
-                        position: absolute;
-                        right: 30px;
-                        top: -10px;
-                        z-index: 1;
-                    }
-                }
             }
         }
         .wrapper{
