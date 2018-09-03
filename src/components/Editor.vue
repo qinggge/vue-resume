@@ -18,13 +18,13 @@
                 <ProfileEditor v-bind:profile="resume.profile"/> 
             </li>
             <li v-bind:class="{active: currentTab === 1}">
-                <ArrayEditor v-bind:items="resume.workExp" v-bind:labels="{company:'公司',duration:'工作年限',content:'工作内容'}" v-bind:title="'工作经历'"/>
+                <ArrayEditor v-bind:items="resume.workExp" v-bind:labels="{company:'公司',position:'工作职位',duration:'工作年限',content:'工作内容'}" v-bind:title="'工作经历'"/>
             </li>
             <li v-bind:class="{active: currentTab === 2}">
                 <ArrayEditor v-bind:items="resume.project" v-bind:labels="{name:'项目名称',content:'项目内容'}" v-bind:title="'项目经验'"/>
             </li>
             <li v-bind:class="{active: currentTab === 3}">
-                <ArrayEditor v-bind:items="resume.education" v-bind:labels="{school:'学校',duration:'时间',degree:'学位'}" v-bind:title="'教育背景'"/>
+                <ArrayEditor v-bind:items="resume.education" v-bind:labels="{school:'学校',duration:'时间',degree:'学位',content:'在校经历'}" v-bind:title="'教育背景'"/>
             </li>
             <li v-bind:class="{active: currentTab === 4}">
                 <h2>联系方式</h2>

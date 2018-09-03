@@ -4,8 +4,7 @@
             VueResumer
         </div>
         <div class="actions">
-            <el-button type="primary">登录</el-button>
-            <el-button>注册</el-button>
+            <span style="font-size:14px;">注意：请在填写完相关信息之后，点击预览，打开打印设置进行保存！Window：CTRL + P || Mac：Command + P</span>
             <el-button v-on:click="preview()">预览</el-button>
         </div>
     </div>

@@ -5,6 +5,9 @@
             <el-form-item label="姓名">
                 <el-input v-model="profile.name"></el-input>
             </el-form-item>
+            <el-form-item label="性别">
+                <el-input v-model="profile.sex"></el-input>
+            </el-form-item>
             <el-form-item label="城市">
                 <el-input v-model="profile.city"></el-input>
             </el-form-item>

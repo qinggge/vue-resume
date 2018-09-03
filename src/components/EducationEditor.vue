@@ -13,6 +13,9 @@
                 <el-form-item label="学位">
                     <el-input v-model="item.degree"></el-input>
                 </el-form-item>
+                <el-form-item label="在校经历">
+                    <el-input v-model="item.content"></el-input>
+                </el-form-item>
                 <i class="el-icon-error" v-on:click="removeEducation(index)"></i>
             </div>
         </el-form>
@@ -25,7 +28,7 @@ export default {
     methods: {
         addEducation(){
             this.items.push({
-                school: '',duration: '',degree: ''
+                school: '',duration: '',degree: '',content: ''
             })
         },
         removeEducation(index){

@@ -1,0 +1,11 @@
+.previewMode #cancelPreview{
+    display: none!important;
+}
+.previewMode #preview{
+    margin: 0 auto!important;
+    overflow: unset!important;
+}
+body{
+    height: auto!important;
+    overflow: unset!important;
+}

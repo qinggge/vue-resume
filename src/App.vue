@@ -19,9 +19,9 @@ export default {
     return{
       previewMode: false,
       resume: {
-        profile: [{ name: '',city: '',birth: ''}],
-        workExp: [{company:'',duration:'',content:''}],
-        education: [{school: '',duration:'',degree:''}],
+        profile: [{ name: '',city: '',birth: '',sex:''}],
+        workExp: [{company:'',position:'',duration:'',content:''}],
+        education: [{school: '',duration:'',degree:'',content:''}],
         project: [{name: '',content: ''}],
         contact: [{QQ:'',wechat: '',tel: '',email: ''}]
       }
@@ -82,7 +82,7 @@ main {
     background: white;
     box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
     border-radius: 4px;
-    overflow: hidden;
+    overflow-y: scroll;
   }
 }
 .icon {
@@ -110,5 +110,18 @@ main {
   display: block;
   top: 30px;
   right: 30px;
+}
+@media print {
+  .previewMode #cancelPreview{
+    display: none!important;
+  }
+  .previewMode #preview{
+    margin: 0 auto!important;
+    overflow: unset!important;
+  }
+  body{
+    height: auto!important;
+    overflow: unset!important;
+  }
 }
 </style>
