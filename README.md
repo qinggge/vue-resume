@@ -1,21 +1,7 @@
 # vue-resume
 
-> A Vue.js project
+## 介绍
+基于 Vue.js ，实现一个可在线编辑、预览、打印的简历编辑器。 
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 预览
+- [Vue 在线简历编辑器](https://zhuhuang.me/vue-resume/dist/)
